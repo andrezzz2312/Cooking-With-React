@@ -4,11 +4,13 @@
 @import 'buttons.css';
 @import 'recipe.css';
 @import 'ingredientList.css';
+@import 'recipe-edit.css';
 
 *,
 *::before,
 *::after {
   font-family: Gotham Rounded, sans-serif;
+  box-sizing: border-box;
 }
 
 html {

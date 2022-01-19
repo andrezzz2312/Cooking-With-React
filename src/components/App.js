@@ -1,12 +1,29 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import RecipeList from './RecipeList';
+import RecipeEdit from './RecipeEdit';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 
+// <-- THINGS TO DO IN THE PROGRAM -->
+// create an array with different colors to give a background color to each recipe in a pattern
+// searchbar
+// collapse the content by clicking the title
+
 export const RecipeContext = React.createContext();
+
+const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
 
 export default function App() {
   const [recipes, setRecipes] = useState(sampleRecipes);
+
+  useEffect(() => {
+    const recipeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (recipeJSON != null) setRecipes(JSON.parse(recipeJSON));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
+  }, [recipes]);
 
   const recipeContextValue = {
     handleRecipeAdd,
@@ -36,13 +53,11 @@ export default function App() {
   function handleRecipeDelete(id) {
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   }
+
   return (
     <RecipeContext.Provider value={recipeContextValue}>
-      <RecipeList
-        recipes={recipes}
-        handleRecipeAdd={handleRecipeAdd}
-        handleRecipeDelete={handleRecipeDelete}
-      />
+      <RecipeList recipes={recipes} />
+      <RecipeEdit />
     </RecipeContext.Provider>
   );
 }
