@@ -8,8 +8,9 @@ import {v4 as uuidv4} from 'uuid';
 // create an array with different colors to give a background color to each recipe in a pattern
 // searchbar
 // collapse the content by clicking the title
-
-// 9:29 18
+//no se puede poner chickennnnnnnnnnnnn por que colisiona
+//hacer focus en name cuando se cree una nueva receta
+//traslate to the bottom of the page at new recipe (after add recipe button is pressed)
 export const RecipeContext = React.createContext();
 
 const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
@@ -36,7 +37,13 @@ export default function App() {
     handleRecipeAdd,
     handleRecipeDelete,
     handleRecipeSelect,
+    handleRecipeChange,
+    handleOpacity,
   };
+
+  function handleOpacity() {
+    return selectedRecipe ? 'opacity' : '';
+  }
 
   function handleRecipeSelect(id) {
     setSelectedRecipeId(id);
@@ -46,29 +53,51 @@ export default function App() {
     const newRecipe = {
       // id: Date.now().toString() / Can set a random ID like this aswell
       id: uuidv4(),
-      name: 'New',
+      name: '',
       servings: 1,
-      cookTime: '1:00',
-      instructions: 'Instr.',
+      cookTime: '',
+      instructions: '',
       ingredients: [
         {
           id: uuidv4(),
-          name: 'Name',
-          amount: '1Tbs',
+          name: '',
+          amount: '',
         },
       ],
     };
 
+    // if (selectedRecipe) {
+    //   RecipeEdit.focus();
+    // }
+    // const focusDiv = useRef();
+
+    // useEffect(() => {
+    //   if (focusDiv.current) focusDiv.current.focus();
+    // }, [focusDiv]);
+
+    // return <div ref={focusDiv}></div>;
+    setSelectedRecipeId(newRecipe.id);
     setRecipes([...recipes, newRecipe]);
   }
 
+  function handleRecipeChange(id, recipe) {
+    const newRecipes = [...recipes];
+    const index = newRecipes.findIndex((r) => r.id === id);
+    newRecipes[index] = recipe;
+    setRecipes(newRecipes);
+  }
+
   function handleRecipeDelete(id) {
+    if (selectedRecipeId != null && selectedRecipeId === id) {
+      setSelectedRecipeId(undefined);
+    }
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   }
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
       <RecipeList recipes={recipes} />
+
       {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
     </RecipeContext.Provider>
   );
