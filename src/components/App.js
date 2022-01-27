@@ -61,16 +61,6 @@ export default function App() {
       ],
     };
 
-    // if (selectedRecipe) {
-    //   RecipeEdit.focus();
-    // }
-    // const focusDiv = useRef();
-
-    // useEffect(() => {
-    //   if (focusDiv.current) focusDiv.current.focus();
-    // }, [focusDiv]);
-
-    // return <div ref={focusDiv}></div>;
     setSelectedRecipeId(newRecipe.id);
     setRecipes([...recipes, newRecipe]);
   }
