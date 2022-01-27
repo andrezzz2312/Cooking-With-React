@@ -38,12 +38,7 @@ export default function App() {
     handleRecipeDelete,
     handleRecipeSelect,
     handleRecipeChange,
-    handleOpacity,
   };
-
-  function handleOpacity() {
-    return selectedRecipe ? 'opacity' : '';
-  }
 
   function handleRecipeSelect(id) {
     setSelectedRecipeId(id);
