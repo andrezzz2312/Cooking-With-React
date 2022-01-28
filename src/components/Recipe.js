@@ -10,7 +10,7 @@ export default function Recipe(props) {
   return (
     <div className='recipe'>
       <div className='recipe__header'>
-        <h3 className='recipe__title'>{name}</h3>
+        <h3 className='recipe__title mr-1'>{name}</h3>
         <div className='btn-recipe-edit-delete-wrapper'>
           <button
             className='btn btn--primary mr-1 btn--rd'
