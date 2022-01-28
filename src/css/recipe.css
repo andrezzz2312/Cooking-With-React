@@ -1,14 +1,13 @@
 .recipe {
   padding: 20px;
   padding-bottom: 40px;
-  border-bottom: 1px solid black;
-  background-color: cornflowerblue;
+  background-color: rgb(250, 243, 150);
   border-radius: 20px;
 }
 
 .recipe:last-child {
-  border-bottom: none;
-  padding-bottom: 10px;
+  /* border-bottom: none;
+padding-bottom: 10px; */
 }
 
 .recipe__header {
@@ -21,8 +20,8 @@
 .recipe__title {
   margin: 0;
   font-size: 1.75rem;
-  min-width: calc(100% - 130px);
-  width: calc(100% - 130px);
+  min-width: calc(100% - 135px);
+  width: calc(100% - 135px);
 }
 
 .recipe__row {
