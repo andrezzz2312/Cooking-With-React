@@ -11,10 +11,12 @@
 *::after {
   font-family: Gotham Rounded, sans-serif;
   box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 html {
   font-size: 25px;
+  scroll-behavior: smooth;
 }
 
 body {

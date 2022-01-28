@@ -60,6 +60,7 @@ export default function RecipeEdit({recipe}) {
           name='name'
           id='name'
           value={recipe.name}
+          autoFocus
           onChange={(e) => handleChange({name: e.target.value})}
           className='recipe-edit__input'
         />

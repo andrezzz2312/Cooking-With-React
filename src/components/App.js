@@ -8,9 +8,7 @@ import {v4 as uuidv4} from 'uuid';
 // create an array with different colors to give a background color to each recipe in a pattern
 // searchbar
 // collapse the content by clicking the title
-//no se puede poner chickennnnnnnnnnnnn por que colisiona
-//hacer focus en name cuando se cree una nueva receta
-//traslate to the bottom of the page at new recipe (after add recipe button is pressed)
+
 export const RecipeContext = React.createContext();
 
 const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
@@ -28,7 +26,10 @@ export default function App() {
     const recipeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (recipeJSON != null) setRecipes(JSON.parse(recipeJSON));
   }, []);
-
+  let Scroll = false;
+  function handleScroll(text) {
+    Scroll = text;
+  }
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
   }, [recipes]);
@@ -38,6 +39,8 @@ export default function App() {
     handleRecipeDelete,
     handleRecipeSelect,
     handleRecipeChange,
+    handleScroll,
+    Scroll,
   };
 
   function handleRecipeSelect(id) {

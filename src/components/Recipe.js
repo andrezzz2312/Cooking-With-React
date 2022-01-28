@@ -11,15 +11,15 @@ export default function Recipe(props) {
     <div className='recipe'>
       <div className='recipe__header'>
         <h3 className='recipe__title'>{name}</h3>
-        <div className=''>
+        <div className='btn-recipe-edit-delete-wrapper'>
           <button
-            className='btn btn--primary mr-1'
+            className='btn btn--primary mr-1 btn--rd'
             onClick={() => handleRecipeSelect(id)}
           >
             Edit
           </button>
           <button
-            className='btn btn--danger'
+            className='btn btn--danger btn--rd'
             onClick={() => handleRecipeDelete(id)}
           >
             Delete

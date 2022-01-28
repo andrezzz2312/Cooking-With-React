@@ -4,7 +4,7 @@ import {RecipeContext} from './App';
 // to create the template just type: "rfc"
 
 export default function RecipeList({recipes}) {
-  const {handleRecipeAdd} = useContext(RecipeContext);
+  const {handleRecipeAdd, handleScroll} = useContext(RecipeContext);
   return (
     <div className='recipe-list'>
       <div>
@@ -13,7 +13,15 @@ export default function RecipeList({recipes}) {
         })}
       </div>
       <div className='recipe-list__add-recipe-btn-container'>
-        <button className='btn btn--primary' onClick={handleRecipeAdd}>
+        <button
+          className='btn btn--primary'
+          onClick={() => {
+            handleRecipeAdd();
+            setTimeout(() => {
+              window.scrollTo(0, document.body.scrollHeight);
+            }, 50);
+          }}
+        >
           Add Recipe
         </button>
       </div>

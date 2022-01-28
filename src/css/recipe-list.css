@@ -2,6 +2,15 @@
   border-right: 1px solid black;
   min-height: 100vh;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.recipe-list > div > div {
+  margin: 20px;
 }
 
 .recipe-list__add-recipe-btn-container {
