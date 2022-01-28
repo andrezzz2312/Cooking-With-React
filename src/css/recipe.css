@@ -1,6 +1,6 @@
 .recipe {
   padding: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   background-color: rgb(250, 243, 150);
   border-radius: 20px;
 }
@@ -14,7 +14,7 @@ padding-bottom: 10px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  text-transform: capitalize;
   width: 100%;
 }
 .recipe__title {
@@ -22,6 +22,8 @@ padding-bottom: 10px; */
   font-size: 1.75rem;
   min-width: calc(100% - 130px);
   width: calc(100% - 130px);
+  cursor: pointer;
+  z-index: 2;
 }
 
 .recipe__row {
@@ -43,4 +45,17 @@ padding-bottom: 10px; */
 .recipe__instructions {
   /* preserve white space in strings: */
   white-space: pre-wrap;
+}
+.recipe__description {
+  background-color: rgb(250, 243, 150);
+  overflow: hidden;
+  transition: max-height 1s;
+
+  max-height: 0;
+}
+
+.description-visible {
+  /* description invisible, turn to DISPLAY BLOCK */
+  /* display: inline-block; */
+  max-height: 500px;
 }
