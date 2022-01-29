@@ -20,10 +20,7 @@ export default function Recipe(props) {
   return (
     <div className='recipe'>
       <div className='recipe__header'>
-        <h3
-          className={`recipe__title mr-1`}
-          onClick={() => handleDescription()}
-        >
+        <h3 className='recipe__title ' onClick={() => handleDescription()}>
           {name}
         </h3>
         <div className='btn-recipe-edit-delete-wrapper'>

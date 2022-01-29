@@ -17,13 +17,17 @@ padding-bottom: 10px; */
   text-transform: capitalize;
   width: 100%;
 }
+
 .recipe__title {
   margin: 0;
   font-size: 1.75rem;
-  min-width: calc(100% - 130px);
-  width: calc(100% - 130px);
+
   cursor: pointer;
-  z-index: 2;
+}
+
+.recipe__title:hover {
+  animation: shake 1s ease;
+  transition: ease-in-out 100ms;
 }
 
 .recipe__row {
@@ -50,12 +54,17 @@ padding-bottom: 10px; */
   background-color: rgb(250, 243, 150);
   overflow: hidden;
   transition: max-height 1s;
-
   max-height: 0;
 }
 
 .description-visible {
-  /* description invisible, turn to DISPLAY BLOCK */
-  /* display: inline-block; */
   max-height: 500px;
+}
+@keyframes shake {
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
 }
