@@ -17,6 +17,7 @@ export default function RecipeList({recipes}) {
           className='btn btn--primary'
           onClick={() => {
             handleRecipeAdd();
+
             setTimeout(() => {
               window.scrollTo(0, document.body.scrollHeight);
             }, 50);
