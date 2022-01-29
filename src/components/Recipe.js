@@ -16,6 +16,9 @@ export default function Recipe(props) {
       setDescription('');
     }
   }
+  function handleDescriptionEdit() {
+    setDescription('description-visible');
+  }
 
   return (
     <div className='recipe'>
@@ -26,7 +29,10 @@ export default function Recipe(props) {
         <div className='btn-recipe-edit-delete-wrapper'>
           <button
             className='btn btn--primary mr-1 btn--rd'
-            onClick={() => handleRecipeSelect(id)}
+            onClick={() => {
+              handleRecipeSelect(id);
+              handleDescriptionEdit();
+            }}
           >
             Edit
           </button>

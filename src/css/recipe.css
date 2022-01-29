@@ -5,10 +5,10 @@
   border-radius: 20px;
 }
 
-.recipe:last-child {
-  /* border-bottom: none;
-padding-bottom: 10px; */
-}
+/* .recipe:last-child {
+   border-bottom: none;
+padding-bottom: 10px; 
+} */
 
 .recipe__header {
   display: flex;
@@ -26,7 +26,7 @@ padding-bottom: 10px; */
 }
 
 .recipe__title:hover {
-  animation: shake 1s ease;
+  animation: shake 1s ease infinite;
   transition: ease-in-out 100ms;
 }
 
@@ -65,6 +65,9 @@ padding-bottom: 10px; */
     transform: rotate(-5deg);
   }
   50% {
-    transform: rotate(5deg);
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
   }
 }

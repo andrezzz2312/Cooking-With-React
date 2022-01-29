@@ -43,6 +43,7 @@ export default function RecipeEdit({recipe}) {
           className='btn recipe-edit__remove-button'
           onClick={() => {
             setVisible(false);
+
             setTimeout(() => {
               handleRecipeSelect(undefined);
             }, 1000);
