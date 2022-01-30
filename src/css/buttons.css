@@ -21,24 +21,24 @@
 
 .btn--primary {
   color: white;
-  background-color: hsl(200, 100%, 50%);
+  background-color: hsl(162, 43%, 46%);
   transition: ease-in-out 100ms;
 }
 
 .btn--primary:hover {
-  background-color: hsl(200, 100%, 30%);
+  background-color: hsl(162, 43%, 26%);
   transition: ease-in-out 100ms;
 }
 
 .btn--danger {
   margin-top: 10px;
   color: white;
-  background-color: hsl(0, 100%, 50%);
+  background-color: hsl(349, 86%, 56%);
   transition: ease-in-out 100ms;
 }
 
 .btn--danger:hover {
-  background-color: hsl(0, 100%, 30%);
+  background-color: hsl(349, 86%, 36%);
   transition: ease-in-out 100ms;
 }
 

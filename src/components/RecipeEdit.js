@@ -38,93 +38,97 @@ export default function RecipeEdit({recipe}) {
   }
   return (
     <div className={`recipe-edit recipe-edit-${visible}`}>
-      <div className='recipe-edit__remove-button-container'>
-        <button
-          className='btn recipe-edit__remove-button'
-          onClick={() => {
-            setVisible(false);
+      <div></div>
+      <div className='recipe-edit-wrapper'>
+        <div className='recipe-edit__remove-button-container'>
+          <button
+            className='btn recipe-edit__remove-button'
+            onClick={() => {
+              setVisible(false);
 
-            setTimeout(() => {
-              handleRecipeSelect(undefined);
-            }, 1000);
-          }}
-        >
-          &times;
-        </button>
-      </div>
-      <div className='recipe-edit__details-grid'>
-        <label htmlFor='name' className='recipe-edit__label'>
-          Name
-        </label>
-        <input
-          type='text'
-          name='name'
-          id='name'
-          value={recipe.name}
-          autoFocus
-          onChange={(e) => handleChange({name: e.target.value})}
-          className='recipe-edit__input'
-        />
-        <label htmlFor='name' className='recipe-edit__label'>
-          Cook Time
-        </label>
-        <input
-          type='text'
-          name='cookTime'
-          id='cookTime'
-          onChange={(e) => handleChange({cookTime: e.target.value})}
-          value={recipe.cookTime}
-          className='recipe-edit__input'
-        />
-        <label htmlFor='name' className='recipe-edit__label'>
-          Servings
-        </label>
-        <input
-          type='number'
-          min='1'
-          name='servings'
-          id='servings'
-          onChange={(e) =>
-            handleChange({servings: parseInt(e.target.value) || ''})
-          }
-          value={recipe.servings}
-          className='recipe-edit__input'
-        />
-        <label htmlFor='instructions' className='recipe-edit__label'>
-          Instructions
-        </label>
-        <textarea
-          name='instructions'
-          onChange={(e) => handleChange({instructions: e.target.value})}
-          value={recipe.instructions}
-          id='instructions'
-          className='recipe-edit__input'
-        />
-      </div>
-      <br />
-      <label className='recipe-edit__label'>Ingredients</label>
-
-      <div className='recipe-edit__ingredient-grid'>
-        <div>Name</div>
-        <div>Amount</div>
-        <div></div>
-        {recipe.ingredients.map((ingredient) => (
-          <RecipeIngredientEdit
-            key={ingredient.id}
-            handleIngredientChange={handleIngredientChange}
-            handleIngredientDelete={handleIngredientDelete}
-            ingredient={ingredient}
+              setTimeout(() => {
+                handleRecipeSelect(undefined);
+              }, 1000);
+            }}
+          >
+            &times;
+          </button>
+        </div>
+        <div className='recipe-edit__details-grid'>
+          <label htmlFor='name' className='recipe-edit__label'>
+            Name
+          </label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            value={recipe.name}
+            autoFocus
+            onChange={(e) => handleChange({name: e.target.value})}
+            className='recipe-edit__input'
           />
-        ))}
+          <label htmlFor='name' className='recipe-edit__label'>
+            Cook Time
+          </label>
+          <input
+            type='text'
+            name='cookTime'
+            id='cookTime'
+            onChange={(e) => handleChange({cookTime: e.target.value})}
+            value={recipe.cookTime}
+            className='recipe-edit__input'
+          />
+          <label htmlFor='name' className='recipe-edit__label'>
+            Servings
+          </label>
+          <input
+            type='number'
+            min='1'
+            name='servings'
+            id='servings'
+            onChange={(e) =>
+              handleChange({servings: parseInt(e.target.value) || ''})
+            }
+            value={recipe.servings}
+            className='recipe-edit__input'
+          />
+          <label htmlFor='instructions' className='recipe-edit__label'>
+            Instructions
+          </label>
+          <textarea
+            name='instructions'
+            onChange={(e) => handleChange({instructions: e.target.value})}
+            value={recipe.instructions}
+            id='instructions'
+            className='recipe-edit__input'
+          />
+        </div>
+        <br />
+        <label className='recipe-edit__label'>Ingredients</label>
+
+        <div className='recipe-edit__ingredient-grid'>
+          <div>Name</div>
+          <div>Amount</div>
+          <div></div>
+          {recipe.ingredients.map((ingredient) => (
+            <RecipeIngredientEdit
+              key={ingredient.id}
+              handleIngredientChange={handleIngredientChange}
+              handleIngredientDelete={handleIngredientDelete}
+              ingredient={ingredient}
+            />
+          ))}
+        </div>
+        <div className='recipe-edit__add-ingredient-btn-container'>
+          <button
+            onClick={() => handleIngredientAdd()}
+            className='btn btn--primary'
+          >
+            Add Ingredient
+          </button>
+        </div>
       </div>
-      <div className='recipe-edit__add-ingredient-btn-container'>
-        <button
-          onClick={() => handleIngredientAdd()}
-          className='btn btn--primary'
-        >
-          Add Ingredient
-        </button>
-      </div>
+      <div></div>
     </div>
   );
 }

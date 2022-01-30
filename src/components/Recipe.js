@@ -32,6 +32,13 @@ export default function Recipe(props) {
           <button
             className='btn btn--primary btn--rd'
             onClick={() => {
+              // copiar este handlerecipeselect en el onclick del titulo para obtener el id del recipe necesario
+              // crear un use state en recipelist donde se mande el handlerecipeselect
+              // y hacer asi function handleRecipeSelect(id) {
+              // setSelectedRecipeId(id);
+              // }
+              // mandar un prop a recipes en recipelist que defina la invisibilidad en todas las recipes con un foreach
+              // y que el unico que tenga el mismo id ya pasado sea visible
               handleRecipeSelect(id);
               handleDescriptionEdit();
             }}

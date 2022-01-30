@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import RecipeList from './RecipeList';
 import RecipeEdit from './RecipeEdit';
-import SearchBar from './SearchBar';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 
 // <-- THINGS TO DO IN THE PROGRAM -->
 // create an array with different colors to give a background color to each recipe in a pattern
 // searchbar
-// decollapse the rest of the articles
+// collapse the rest of the articles
+// decollapse the recipe that im creating
 
 export const RecipeContext = React.createContext();
 

@@ -1,14 +1,9 @@
 .recipe {
   padding: 20px;
   padding-bottom: 20px;
-  background-color: rgb(250, 243, 150);
+  background-color: hsl(39, 92%, 57%);
   border-radius: 20px;
 }
-
-/* .recipe:last-child {
-   border-bottom: none;
-padding-bottom: 10px; 
-} */
 
 .recipe__header {
   display: flex;
@@ -53,7 +48,6 @@ padding-bottom: 10px;
   white-space: pre-wrap;
 }
 .recipe__description {
-  background-color: rgb(250, 243, 150);
   overflow: hidden;
   transition: max-height 1s;
   max-height: 0;
@@ -62,6 +56,7 @@ padding-bottom: 10px;
 .description-visible {
   max-height: 500px;
 }
+
 @keyframes shake {
   25% {
     transform: rotate(-5deg);
