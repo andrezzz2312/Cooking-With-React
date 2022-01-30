@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import RecipeList from './RecipeList';
 import RecipeEdit from './RecipeEdit';
+import SearchBar from './SearchBar';
 import '../css/app.css';
 import {v4 as uuidv4} from 'uuid';
 

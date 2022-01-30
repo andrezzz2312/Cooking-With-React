@@ -1,0 +1,30 @@
+.searchbar {
+  position: sticky;
+  background: lightblue;
+  width: 300px;
+  height: 70px;
+
+  bottom: 25px;
+  left: 25px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.search {
+  font-size: 1.5rem;
+  margin-left: -10px;
+}
+
+.recipe-list__input {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: inherit;
+  outline: none;
+  width: 200px;
+}

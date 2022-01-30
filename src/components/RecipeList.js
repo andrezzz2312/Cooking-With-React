@@ -1,6 +1,9 @@
 import React, {useContext} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+
 // to create the template just type: "rfc"
 
 export default function RecipeList({recipes}) {
@@ -26,6 +29,11 @@ export default function RecipeList({recipes}) {
           Add Recipe
         </button>
       </div>
+
+      {/* <div className='searchbar'>
+        <input className='recipe-list__input' type='text' />
+        <FontAwesomeIcon icon={faSearch} className='search' />
+      </div> */}
     </div>
   );
 }

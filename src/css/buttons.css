@@ -10,10 +10,13 @@
 }
 
 .btn--rd {
-  width: 130px;
+  border-radius: 100px;
 }
 .btn-recipe-edit-delete-wrapper {
-  width: 130px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .btn--primary {
@@ -39,7 +42,7 @@
   transition: ease-in-out 100ms;
 }
 
-/* @media (max-width: 1100px) {
+/* @media (max-width: 730px) {
   .btn--danger {
     margin-top: 10px;
   }

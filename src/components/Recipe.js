@@ -1,6 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import IngredientList from './IngredientList';
 import {RecipeContext} from './App';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrashAlt, faEdit} from '@fortawesome/free-solid-svg-icons';
 
 export default function Recipe(props) {
   const {handleRecipeDelete, handleRecipeSelect} = useContext(RecipeContext);
@@ -28,19 +30,19 @@ export default function Recipe(props) {
         </h3>
         <div className='btn-recipe-edit-delete-wrapper'>
           <button
-            className='btn btn--primary mr-1 btn--rd'
+            className='btn btn--primary btn--rd'
             onClick={() => {
               handleRecipeSelect(id);
               handleDescriptionEdit();
             }}
           >
-            Edit
+            <FontAwesomeIcon icon={faEdit} className='edit' />
           </button>
           <button
             className='btn btn--danger btn--rd'
             onClick={() => handleRecipeDelete(id)}
           >
-            Delete
+            <FontAwesomeIcon icon={faTrashAlt} className='delete' />
           </button>
         </div>
       </div>
