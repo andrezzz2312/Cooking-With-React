@@ -47,7 +47,6 @@ export default function RecipeList({recipes}) {
           className='btn btn--primary'
           onClick={() => {
             handleRecipeAdd();
-
             setTimeout(() => {
               window.scrollTo(0, document.body.scrollHeight);
             }, 50);
@@ -64,13 +63,11 @@ export default function RecipeList({recipes}) {
             type='text'
             disabled={searchVisibility.dis}
           />
-
           <FontAwesomeIcon
             icon={faSearch}
             className='search'
             onClick={() => {
               setIsVis(!isVis);
-
               handleVis(isVis);
             }}
           />
