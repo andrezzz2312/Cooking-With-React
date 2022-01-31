@@ -9,7 +9,6 @@ export default function RecipeEdit({recipe}) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    console.log('Render');
     setVisible(true);
   }, []);
 
