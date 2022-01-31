@@ -7,11 +7,8 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 // to create the template just type: "rfc"
 
 export default function RecipeList({recipes}) {
-  const {
-    handleRecipeAdd,
-    selectedRecipeDescription,
-    handleSelectedRecipeDescription,
-  } = useContext(RecipeContext);
+  const {handleRecipeAdd, selectedRecipeDescription} =
+    useContext(RecipeContext);
 
   const [isVis, setIsVis] = useState(true);
   const [searchVisibility, setSearchVisibility] = useState({
@@ -62,7 +59,6 @@ export default function RecipeList({recipes}) {
           className='btn btn--primary'
           onClick={() => {
             handleRecipeAdd();
-
             setTimeout(() => {
               window.scrollTo(0, document.body.scrollHeight);
             }, 50);
