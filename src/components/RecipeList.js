@@ -5,52 +5,16 @@ import {RecipeContext} from './App';
 import SearchBar from './SearchBar';
 
 // to create the template just type: "rfc"
-export const SearchContext = React.createContext();
 
 export default function RecipeList({recipes}) {
   const {handleRecipeAdd, selectedRecipeDescription} =
     useContext(RecipeContext);
 
-  const [isVis, setIsVis] = useState(true);
-  const [searchVisibility, setSearchVisibility] = useState({
-    sb: '',
-    sbw: '',
-    rli: '',
-  });
-
-  const SearchContextValue = {
-    setFocusSearch,
-    setIsVis,
-    handleVis,
-  };
-
-  function handleVis(e) {
-    if (e) {
-      setSearchVisibility({
-        sb: 'searchbar-showed',
-        sbw: 'searchbar-wrapper-showed',
-        rli: 'recipe-list__input-showed',
-      });
-    } else {
-      setSearchVisibility({
-        sb: '',
-        sbw: '',
-        rli: '',
-      });
-    }
-  }
-
-  function setFocusSearch() {
-    document.getElementById('searchInput').focus();
-  }
-
   return (
     <div className='recipe-list'>
       <div>
         {recipes.map((recipe) => {
-          const check = selectedRecipeDescription;
-
-          if (check === recipe.id) {
+          if (selectedRecipeDescription === recipe.id) {
             recipe.descriptionVisible = 'description-visible';
           } else {
             recipe.descriptionVisible = '';
@@ -72,9 +36,7 @@ export default function RecipeList({recipes}) {
           Add Recipe
         </button>
       </div>
-      <SearchContext.Provider value={SearchContextValue}>
-        <SearchBar {...searchVisibility} isVis={isVis} />
-      </SearchContext.Provider>
+      <SearchBar />
     </div>
   );
 }
