@@ -7,7 +7,6 @@ import {v4 as uuidv4} from 'uuid';
 // <-- THINGS TO DO IN THE PROGRAM -->
 // create an array with different colors to give a background color to each recipe in a pattern
 // searchbar
-// decollapse the recipe that im creating
 // esp/eng
 
 export const RecipeContext = React.createContext();
