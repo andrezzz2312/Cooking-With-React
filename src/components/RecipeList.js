@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
 
@@ -9,17 +9,12 @@ import SearchBar from './SearchBar';
 export default function RecipeList({recipes}) {
   const [searchValue, setSearchValue] = useState('');
 
-  const {handleRecipeAdd, selectedRecipeDescription} =
+  const {handleRecipeAdd, selectedRecipeDescription, handleRecipeSelect} =
     useContext(RecipeContext);
 
   function handleSearchValue(e) {
-    if (e !== '') {
-      setSearchValue(e);
-    } else {
-      setSearchValue(e);
-    }
-
-    console.log(searchValue);
+    setSearchValue(e);
+    handleRecipeSelect(undefined);
   }
 
   function show() {

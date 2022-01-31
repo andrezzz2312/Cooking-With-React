@@ -18,6 +18,7 @@ export default function SearchBar({handleSearchValue}) {
         rli: 'recipe-list__input-showed',
       });
     } else {
+      handleSearchValue('');
       setSearchVisibility({
         sb: '',
         sbw: '',
