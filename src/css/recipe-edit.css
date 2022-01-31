@@ -9,7 +9,6 @@
   transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
   display: flex;
   align-items: center;
-
   justify-content: flex-start;
   flex-direction: column;
 }
@@ -22,6 +21,7 @@
   height: 100%;
   background-color: hsl(39, 92%, 57%);
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .recipe-edit-true {
@@ -40,12 +40,15 @@
 }
 
 .recipe-edit__remove-button {
-  padding: 0;
-  margin-bottom: 5px;
   background: none;
-  outline: none;
   border: none;
-  font-size: 1.5rem;
+  outline: none;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 5px;
+  /* padding: 5px 20px; */
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .recipe-edit__remove-button:hover {
@@ -65,7 +68,7 @@
   font-weight: bold;
 }
 .recipe-edit__input {
-  border: 1px solid black;
+  border: none;
   border-radius: 5px;
   font-size: inherit;
   padding: 5px 10px;

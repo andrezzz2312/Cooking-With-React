@@ -40,7 +40,7 @@ export default function RecipeEdit({recipe}) {
       <div className='recipe-edit-wrapper'>
         <div className='recipe-edit__remove-button-container'>
           <button
-            className='btn recipe-edit__remove-button'
+            className=' recipe-edit__remove-button'
             onClick={() => {
               setVisible(false);
 
