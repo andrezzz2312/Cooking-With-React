@@ -1,10 +1,11 @@
 import React, {useContext, useState} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+
+import SearchBar from './SearchBar';
 
 // to create the template just type: "rfc"
+export const SearchContext = React.createContext();
 
 export default function RecipeList({recipes}) {
   const {handleRecipeAdd, selectedRecipeDescription} =
@@ -17,20 +18,24 @@ export default function RecipeList({recipes}) {
     rli: '',
   });
 
+  const SearchContextValue = {
+    setFocusSearch,
+    setIsVis,
+    handleVis,
+  };
+
   function handleVis(e) {
     if (e) {
       setSearchVisibility({
         sb: 'searchbar-showed',
         sbw: 'searchbar-wrapper-showed',
         rli: 'recipe-list__input-showed',
-        dis: false,
       });
     } else {
       setSearchVisibility({
         sb: '',
         sbw: '',
         rli: '',
-        dis: true,
       });
     }
   }
@@ -67,25 +72,9 @@ export default function RecipeList({recipes}) {
           Add Recipe
         </button>
       </div>
-
-      <div className={`searchbar ${searchVisibility.sb}`}>
-        <div className={`searchbar-wrapper ${searchVisibility.sbw}`}>
-          <input
-            className={`recipe-list__input ${searchVisibility.rli}`}
-            id='searchInput'
-            type='text'
-          />
-          <FontAwesomeIcon
-            icon={faSearch}
-            className='search'
-            onClick={() => {
-              setFocusSearch();
-              setIsVis(!isVis);
-              handleVis(isVis);
-            }}
-          />
-        </div>
-      </div>
+      <SearchContext.Provider value={SearchContextValue}>
+        <SearchBar {...searchVisibility} isVis={isVis} />
+      </SearchContext.Provider>
     </div>
   );
 }
