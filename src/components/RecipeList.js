@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
 
@@ -7,22 +7,50 @@ import SearchBar from './SearchBar';
 // to create the template just type: "rfc"
 
 export default function RecipeList({recipes}) {
+  const [searchValue, setSearchValue] = useState('');
+
   const {handleRecipeAdd, selectedRecipeDescription} =
     useContext(RecipeContext);
 
-  return (
-    <div className='recipe-list'>
-      <div>
-        {recipes.map((recipe) => {
+  function handleSearchValue(e) {
+    if (e !== '') {
+      setSearchValue(e);
+    } else {
+      setSearchValue(e);
+    }
+
+    console.log(searchValue);
+  }
+
+  function show() {
+    if (searchValue === '') {
+      return recipes.map((recipe) => {
+        if (selectedRecipeDescription === recipe.id) {
+          recipe.descriptionVisible = 'description-visible';
+        } else {
+          recipe.descriptionVisible = '';
+        }
+
+        return <Recipe key={recipe.id} {...recipe} />;
+      });
+    } else {
+      return recipes.map((recipe) => {
+        if (recipe.name.toLowerCase().includes(searchValue.toLowerCase())) {
           if (selectedRecipeDescription === recipe.id) {
             recipe.descriptionVisible = 'description-visible';
           } else {
             recipe.descriptionVisible = '';
           }
-
           return <Recipe key={recipe.id} {...recipe} />;
-        })}
-      </div>
+        } else {
+          return null;
+        }
+      });
+    }
+  }
+  return (
+    <div className='recipe-list'>
+      <div>{show()}</div>
       <div className='recipe-list__add-recipe-btn-container'>
         <button
           className='btn btn--primary'
@@ -36,7 +64,7 @@ export default function RecipeList({recipes}) {
           Add Recipe
         </button>
       </div>
-      <SearchBar />
+      <SearchBar handleSearchValue={handleSearchValue} />
     </div>
   );
 }

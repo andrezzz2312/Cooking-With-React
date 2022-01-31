@@ -2,7 +2,8 @@ import {React, useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
-export default function SearchBar() {
+export default function SearchBar({handleSearchValue}) {
+  const input = document.getElementById('searchInput');
   const [isVis, setIsVis] = useState(true);
   const [searchVisibility, setSearchVisibility] = useState({
     sb: '',
@@ -26,7 +27,10 @@ export default function SearchBar() {
   }
 
   function setFocusSearch() {
-    document.getElementById('searchInput').focus();
+    input.focus();
+  }
+  function clearInput() {
+    input.value = '';
   }
 
   return (
@@ -36,12 +40,13 @@ export default function SearchBar() {
           className={`recipe-list__input ${searchVisibility.rli}`}
           id='searchInput'
           type='text'
-          onChange={'a'}
+          onKeyUp={(e) => handleSearchValue(e.target.value)}
         />
         <FontAwesomeIcon
           icon={faSearch}
           className='search'
           onClick={() => {
+            clearInput();
             setIsVis(!isVis);
             handleVis(isVis);
             setFocusSearch();
