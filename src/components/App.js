@@ -70,6 +70,7 @@ export default function App() {
 
     setSelectedRecipeId(newRecipe.id);
     setRecipes([...recipes, newRecipe]);
+    handleSelectedRecipeDescription(newRecipe.id);
   }
 
   function handleRecipeChange(id, recipe) {

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -7,8 +7,11 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 // to create the template just type: "rfc"
 
 export default function RecipeList({recipes}) {
-  const {handleRecipeAdd, selectedRecipeDescription} =
-    useContext(RecipeContext);
+  const {
+    handleRecipeAdd,
+    selectedRecipeDescription,
+    handleSelectedRecipeDescription,
+  } = useContext(RecipeContext);
 
   const [isVis, setIsVis] = useState(true);
   const [searchVisibility, setSearchVisibility] = useState({
@@ -59,6 +62,7 @@ export default function RecipeList({recipes}) {
           className='btn btn--primary'
           onClick={() => {
             handleRecipeAdd();
+
             setTimeout(() => {
               window.scrollTo(0, document.body.scrollHeight);
             }, 50);
