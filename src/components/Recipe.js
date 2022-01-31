@@ -5,19 +5,24 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrashAlt, faEdit} from '@fortawesome/free-solid-svg-icons';
 
 export default function Recipe(props) {
-  const {handleRecipeDelete, handleRecipeSelect} = useContext(RecipeContext);
+  const {
+    handleRecipeDelete,
+    handleRecipeSelect,
+    handleSelectedRecipeDescription,
+  } = useContext(RecipeContext);
 
-  const {id, name, cookTime, servings, instructions, ingredients} = props;
+  const {
+    id,
+    name,
+    cookTime,
+    servings,
+    instructions,
+    ingredients,
+    descriptionVisible,
+  } = props;
 
   const [description, setDescription] = useState('');
 
-  function handleDescription() {
-    if (description === '') {
-      setDescription('description-visible');
-    } else {
-      setDescription('');
-    }
-  }
   function handleDescriptionEdit() {
     setDescription('description-visible');
   }
@@ -25,20 +30,23 @@ export default function Recipe(props) {
   return (
     <div className='recipe'>
       <div className='recipe__header'>
-        <h3 className='recipe__title ' onClick={() => handleDescription()}>
+        <h3
+          className='recipe__title '
+          onClick={() => {
+            if (descriptionVisible === 'description-visible') {
+              handleSelectedRecipeDescription(undefined);
+            } else {
+              handleSelectedRecipeDescription(id);
+            }
+          }}
+        >
           {name}
         </h3>
         <div className='btn-recipe-edit-delete-wrapper'>
           <button
             className='btn btn--primary btn--rd'
             onClick={() => {
-              // copiar este handlerecipeselect en el onclick del titulo para obtener el id del recipe necesario
-              // crear un use state en recipelist donde se mande el handlerecipeselect
-              // y hacer asi function handleRecipeSelect(id) {
-              // setSelectedRecipeId(id);
-              // }
-              // mandar un prop a recipes en recipelist que defina la invisibilidad en todas las recipes con un foreach
-              // y que el unico que tenga el mismo id ya pasado sea visible
+              handleSelectedRecipeDescription(id);
               handleRecipeSelect(id);
               handleDescriptionEdit();
             }}
@@ -53,7 +61,7 @@ export default function Recipe(props) {
           </button>
         </div>
       </div>
-      <div className={`recipe__description ${description}`}>
+      <div className={`recipe__description ${descriptionVisible}`}>
         <div className='recipe__row'>
           <span className='recipe__label'>Cook Time:</span>
           <span className='recipe__value'>{cookTime}</span>

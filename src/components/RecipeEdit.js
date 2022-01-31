@@ -37,7 +37,6 @@ export default function RecipeEdit({recipe}) {
   }
   return (
     <div className={`recipe-edit recipe-edit-${visible}`}>
-      <div></div>
       <div className='recipe-edit-wrapper'>
         <div className='recipe-edit__remove-button-container'>
           <button
@@ -127,7 +126,6 @@ export default function RecipeEdit({recipe}) {
           </button>
         </div>
       </div>
-      <div></div>
     </div>
   );
 }

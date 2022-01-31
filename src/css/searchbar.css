@@ -31,8 +31,7 @@
   cursor: pointer;
   transition: all 1s ease;
 }
-.search-showed {
-}
+
 .search:hover {
   animation: shake 1s ease infinite;
 }

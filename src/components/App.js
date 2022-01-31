@@ -7,8 +7,8 @@ import {v4 as uuidv4} from 'uuid';
 // <-- THINGS TO DO IN THE PROGRAM -->
 // create an array with different colors to give a background color to each recipe in a pattern
 // searchbar
-// collapse the rest of the articles
 // decollapse the recipe that im creating
+// esp/eng
 
 export const RecipeContext = React.createContext();
 
@@ -16,6 +16,7 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
 
 export default function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
+  const [selectedRecipeDescription, setSelectedRecipeDescription] = useState();
 
   const [recipes, setRecipes] = useState(sampleRecipes);
 
@@ -37,16 +38,23 @@ export default function App() {
     handleRecipeDelete,
     handleRecipeSelect,
     handleRecipeChange,
+    handleSelectedRecipeDescription,
+    selectedRecipeDescription,
   };
 
   function handleRecipeSelect(id) {
     setSelectedRecipeId(id);
   }
 
+  function handleSelectedRecipeDescription(id) {
+    setSelectedRecipeDescription(id);
+  }
+
   function handleRecipeAdd() {
     const newRecipe = {
       // id: Date.now().toString() / Can set a random ID like this aswell
       id: uuidv4(),
+      descriptionVisible: '',
       name: '',
       servings: 1,
       cookTime: '',
@@ -90,6 +98,7 @@ export default function App() {
 const sampleRecipes = [
   {
     id: 1,
+    descriptionVisible: '',
     name: 'Plain Chicken',
     servings: 3,
     cookTime: '1:45',
@@ -111,6 +120,7 @@ const sampleRecipes = [
   },
   {
     id: 2,
+    descriptionVisible: '',
     name: 'Plain Pork',
     servings: 5,
     cookTime: '0:45',
