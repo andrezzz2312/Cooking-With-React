@@ -1,8 +1,7 @@
 import React, {useContext, useState} from 'react';
 import IngredientList from './IngredientList';
 import {RecipeContext} from './App';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTrashAlt, faEdit} from '@fortawesome/free-solid-svg-icons';
+import {FaTrashAlt, FaEdit} from 'react-icons/fa';
 
 export default function Recipe(props) {
   const {
@@ -51,13 +50,13 @@ export default function Recipe(props) {
               handleDescriptionEdit();
             }}
           >
-            <FontAwesomeIcon icon={faEdit} className='edit' />
+            <FaEdit className='edit' />
           </button>
           <button
             className='btn btn--danger btn--rd'
             onClick={() => handleRecipeDelete(id)}
           >
-            <FontAwesomeIcon icon={faTrashAlt} className='delete' />
+            <FaTrashAlt className='delete' />
           </button>
         </div>
       </div>

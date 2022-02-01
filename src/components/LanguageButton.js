@@ -6,9 +6,7 @@ export default function LanguageButton() {
   return (
     <div className='languangeButton'>
       <div className='languageButton-wrapper'>
-        <FaBeer className='icon' />
-        <span className='ae fi-gr icon'></span>
-        <span className='fi fi-gr fis icon'></span>
+        <img src='/mx4.3.svg' alt='SVG as an image' />
       </div>
     </div>
   );
