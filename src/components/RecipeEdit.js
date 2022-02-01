@@ -9,7 +9,7 @@ export default function RecipeEdit({recipe}) {
 
   const [visible, setVisible] = useState(false);
 
-  const ingredientDiv = document.getElementById('nigga');
+  const ingredientDiv = document.getElementById('ingredientz');
 
   useEffect(() => {
     setVisible(true);
@@ -105,13 +105,14 @@ export default function RecipeEdit({recipe}) {
           />
         </div>
         <br />
-        <label className='recipe-edit__label'>Ingredients</label>
+
+        <label className='recipe-edit__label'>{language.ingredients}</label>
         <div className='recipe-edit__ingredient-label'>
           <div className='asd'>{language.name}</div>
           <div className='asd'>{language.amount}</div>
         </div>
 
-        <div id='nigga' className='recipe-edit__ingredient-grid'>
+        <div id='ingredientz' className='recipe-edit__ingredient-grid'>
           {recipe.ingredients.map((ingredient) => (
             <RecipeIngredientEdit
               key={ingredient.id}

@@ -1,4 +1,5 @@
 import React from 'react';
+import {CgScrollV} from 'react-icons/cg';
 
 export default function RecipeIngredientEdit(props) {
   const {ingredient, handleIngredientChange, handleIngredientDelete} = props;
@@ -8,6 +9,7 @@ export default function RecipeIngredientEdit(props) {
   }
   return (
     <>
+      <button className='recipe-edit__drag'></button>
       <input
         className='recipe-edit__input'
         type='text'

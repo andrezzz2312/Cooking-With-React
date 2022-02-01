@@ -43,9 +43,3 @@
   background-color: hsl(349, 86%, 36%);
   transition: ease-in-out 100ms;
 }
-
-/* @media (max-width: 730px) {
-  .btn--danger {
-    margin-top: 10px;
-  }
-} */
