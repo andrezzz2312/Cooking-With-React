@@ -1,0 +1,27 @@
+.languageButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  height: 2px;
+
+  width: 2px;
+  transition: all 1s ease;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  background-color: brown;
+}
+.languageButton-wrapper {
+  width: 70px;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+
+  background-color: brown;
+}
+
+.icon {
+  font-size: 2rem;
+  cursor: pointer;
+}

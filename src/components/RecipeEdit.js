@@ -8,6 +8,8 @@ export default function RecipeEdit({recipe}) {
 
   const [visible, setVisible] = useState(false);
 
+  const ingredientDiv = document.getElementById('nigga');
+
   useEffect(() => {
     setVisible(true);
   }, []);
@@ -103,11 +105,12 @@ export default function RecipeEdit({recipe}) {
         </div>
         <br />
         <label className='recipe-edit__label'>Ingredients</label>
+        <div className='recipe-edit__ingredient-label'>
+          <div className='asd'>Name</div>
+          <div className='asd'>Amount</div>
+        </div>
 
-        <div className='recipe-edit__ingredient-grid'>
-          <div>Name</div>
-          <div>Amount</div>
-          <div></div>
+        <div id='nigga' className='recipe-edit__ingredient-grid'>
           {recipe.ingredients.map((ingredient) => (
             <RecipeIngredientEdit
               key={ingredient.id}
@@ -119,7 +122,12 @@ export default function RecipeEdit({recipe}) {
         </div>
         <div className='recipe-edit__add-ingredient-btn-container'>
           <button
-            onClick={() => handleIngredientAdd()}
+            onClick={() => {
+              handleIngredientAdd();
+              setTimeout(() => {
+                ingredientDiv.scrollTop = ingredientDiv.scrollHeight;
+              }, 50);
+            }}
             className='btn btn--primary'
           >
             Add Ingredient

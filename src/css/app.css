@@ -1,4 +1,4 @@
-@import-normalize;
+
 @import 'font.css';
 @import 'recipe-list.css';
 @import 'buttons.css';
@@ -6,6 +6,7 @@
 @import 'ingredientList.css';
 @import 'recipe-edit.css';
 @import 'searchbar.css';
+@import 'languageButton.css';
 
 *,
 *::before,

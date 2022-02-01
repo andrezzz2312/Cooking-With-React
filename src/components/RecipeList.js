@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import Recipe from './Recipe';
 import {RecipeContext} from './App';
-
+import LanguageButton from './LanguageButton';
 import SearchBar from './SearchBar';
 
 // to create the template just type: "rfc"
@@ -60,6 +60,7 @@ export default function RecipeList({recipes}) {
         </button>
       </div>
       <SearchBar handleSearchValue={handleSearchValue} />
+      <LanguageButton />
     </div>
   );
 }

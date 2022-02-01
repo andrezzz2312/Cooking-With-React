@@ -1,6 +1,5 @@
 import {React, useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import {FaSearch} from 'react-icons/fa';
 
 export default function SearchBar({handleSearchValue}) {
   const input = document.getElementById('searchInput');
@@ -43,8 +42,7 @@ export default function SearchBar({handleSearchValue}) {
           type='text'
           onKeyUp={(e) => handleSearchValue(e.target.value)}
         />
-        <FontAwesomeIcon
-          icon={faSearch}
+        <FaSearch
           className='search'
           onClick={() => {
             clearInput();
