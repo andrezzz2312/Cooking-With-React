@@ -15,6 +15,15 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
 export default function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
   const [selectedRecipeDescription, setSelectedRecipeDescription] = useState();
+  const [language, setLanguage] = useState(languages[0]);
+
+  function handleLanguage() {
+    if (language.name === languages[0].name) {
+      setLanguage(languages[1]);
+    } else {
+      setLanguage(languages[0]);
+    }
+  }
 
   const [recipes, setRecipes] = useState(sampleRecipes);
 
@@ -38,6 +47,8 @@ export default function App() {
     handleRecipeChange,
     handleSelectedRecipeDescription,
     selectedRecipeDescription,
+    language,
+    handleLanguage,
   };
 
   function handleRecipeSelect(id) {
@@ -136,5 +147,28 @@ const sampleRecipes = [
         amount: '2 Tbs',
       },
     ],
+  },
+];
+
+const languages = [
+  {
+    cookTime: 'Cook Time',
+    servings: 'Servings',
+    instructions: 'Instructions',
+    ingredients: 'Ingredients',
+    name: 'Name',
+    amount: 'Amount',
+    addRecipe: 'Add Recipe',
+    addIngredient: 'Add Ingredient',
+  },
+  {
+    cookTime: 'Tiempo de cocción',
+    servings: 'Porciones',
+    instructions: 'Instrucciones',
+    ingredients: 'Ingredientes',
+    name: 'Nombre',
+    amount: 'Monto',
+    addRecipe: 'Nueva Receta',
+    addIngredient: 'Añadir Ingrediente',
   },
 ];

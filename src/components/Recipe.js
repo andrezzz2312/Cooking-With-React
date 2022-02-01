@@ -8,6 +8,7 @@ export default function Recipe(props) {
     handleRecipeDelete,
     handleRecipeSelect,
     handleSelectedRecipeDescription,
+    language,
   } = useContext(RecipeContext);
 
   const {
@@ -62,21 +63,21 @@ export default function Recipe(props) {
       </div>
       <div className={`recipe__description ${descriptionVisible}`}>
         <div className='recipe__row'>
-          <span className='recipe__label'>Cook Time:</span>
+          <span className='recipe__label'>{language.cookTime}:</span>
           <span className='recipe__value'>{cookTime}</span>
         </div>
         <div className='recipe__row'>
-          <span className='recipe__label'>Servings:</span>
+          <span className='recipe__label'>{language.servings}:</span>
           <span className='recipe__value'>{servings}</span>
         </div>
         <div className='recipe__row'>
-          <span className='recipe__label'>Instructions</span>
+          <span className='recipe__label'>{language.instructions}</span>
           <div className='recipe__value recipe__value--indented recipe__instructions'>
             {instructions}
           </div>
         </div>
         <div className='recipe__row'>
-          <span className='recipe__label'>Ingredients:</span>
+          <span className='recipe__label'>{language.ingredients}:</span>
           <div className='recipe__value recipe__value--indented'>
             <IngredientList ingredients={ingredients} />
           </div>

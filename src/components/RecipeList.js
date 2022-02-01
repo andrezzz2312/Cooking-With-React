@@ -9,8 +9,12 @@ import SearchBar from './SearchBar';
 export default function RecipeList({recipes}) {
   const [searchValue, setSearchValue] = useState('');
 
-  const {handleRecipeAdd, selectedRecipeDescription, handleRecipeSelect} =
-    useContext(RecipeContext);
+  const {
+    handleRecipeAdd,
+    selectedRecipeDescription,
+    handleRecipeSelect,
+    language,
+  } = useContext(RecipeContext);
 
   function handleSearchValue(e) {
     setSearchValue(e);
@@ -56,7 +60,7 @@ export default function RecipeList({recipes}) {
             }, 50);
           }}
         >
-          Add Recipe
+          {language.addRecipe}
         </button>
       </div>
       <SearchBar handleSearchValue={handleSearchValue} />

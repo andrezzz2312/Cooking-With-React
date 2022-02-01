@@ -4,7 +4,8 @@ import {RecipeContext} from './App';
 import {v4 as uuidv4} from 'uuid';
 
 export default function RecipeEdit({recipe}) {
-  const {handleRecipeChange, handleRecipeSelect} = useContext(RecipeContext);
+  const {handleRecipeChange, handleRecipeSelect, language} =
+    useContext(RecipeContext);
 
   const [visible, setVisible] = useState(false);
 
@@ -56,7 +57,7 @@ export default function RecipeEdit({recipe}) {
         </div>
         <div className='recipe-edit__details-grid'>
           <label htmlFor='name' className='recipe-edit__label'>
-            Name
+            {language.name}
           </label>
           <input
             type='text'
@@ -68,7 +69,7 @@ export default function RecipeEdit({recipe}) {
             className='recipe-edit__input'
           />
           <label htmlFor='name' className='recipe-edit__label'>
-            Cook Time
+            {language.cookTime}
           </label>
           <input
             type='text'
@@ -79,7 +80,7 @@ export default function RecipeEdit({recipe}) {
             className='recipe-edit__input'
           />
           <label htmlFor='name' className='recipe-edit__label'>
-            Servings
+            {language.servings}
           </label>
           <input
             type='number'
@@ -93,7 +94,7 @@ export default function RecipeEdit({recipe}) {
             className='recipe-edit__input'
           />
           <label htmlFor='instructions' className='recipe-edit__label'>
-            Instructions
+            {language.instructions}
           </label>
           <textarea
             name='instructions'
@@ -106,8 +107,8 @@ export default function RecipeEdit({recipe}) {
         <br />
         <label className='recipe-edit__label'>Ingredients</label>
         <div className='recipe-edit__ingredient-label'>
-          <div className='asd'>Name</div>
-          <div className='asd'>Amount</div>
+          <div className='asd'>{language.name}</div>
+          <div className='asd'>{language.amount}</div>
         </div>
 
         <div id='nigga' className='recipe-edit__ingredient-grid'>
@@ -130,7 +131,7 @@ export default function RecipeEdit({recipe}) {
             }}
             className='btn btn--primary'
           >
-            Add Ingredient
+            {language.addIngredient}
           </button>
         </div>
       </div>
