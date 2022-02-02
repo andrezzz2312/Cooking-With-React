@@ -1,14 +1,13 @@
 .languageButton-wrapper {
   position: fixed;
-  bottom: 15px;
+  bottom: 0px;
   left: 5px;
 }
 
 .icon {
-  border: white solid 2px;
-  width: 81px;
-  height: 47px;
+  width: 67px;
+  height: 70px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 100px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
