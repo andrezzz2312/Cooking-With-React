@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import RecipeIngredientEdit from './RecipeIngredientEdit';
 import {RecipeContext} from './App';
 import {v4 as uuidv4} from 'uuid';
-import {FiArrowUp, FiArrowDown} from 'react-icons/fi';
+import {FaArrowUp, FaArrowDown} from 'react-icons/fa';
 
 export default function RecipeEdit({recipe}) {
   const {handleRecipeChange, handleRecipeSelect, language} =
@@ -109,19 +109,19 @@ export default function RecipeEdit({recipe}) {
 
         <label className='recipe-edit__label'>{language.ingredients}</label>
         <div className='recipe-edit__ingredient-label'>
-          <div className='asd'>{language.name}</div>
-          <div className='asd'>{language.amount}</div>
+          <div>{language.name}</div>
+          <div>{language.amount}</div>
         </div>
         <div className='recipe-edit__ingredient-wrapper'>
           <div className='recipe-edit__ingredient-scroll'>
-            <FiArrowUp
+            <FaArrowUp
               onClick={() => {
                 setTimeout(() => {
                   ingredientDiv.scrollTop -= 43.33;
                 }, 50);
               }}
             />
-            <FiArrowDown
+            <FaArrowDown
               onClick={() => {
                 setTimeout(() => {
                   ingredientDiv.scrollTop += 43.33;
