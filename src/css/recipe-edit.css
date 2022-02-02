@@ -151,7 +151,6 @@ textarea.recipe-edit__input {
     gap: 10px;
     max-height: 76.67px;
     overflow: scroll;
-    scroll-margin: 50px;
     overflow-y: auto;
   }
   .recipe-edit__ingredient-scroll {
