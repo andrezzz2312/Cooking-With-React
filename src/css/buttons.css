@@ -19,6 +19,7 @@
   align-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 10px;
 }
 
 .btn--primary {
@@ -33,7 +34,6 @@
 }
 
 .btn--danger {
-  margin-top: 10px;
   color: white;
   background-color: hsl(349, 86%, 56%);
   transition: ease-in-out 100ms;

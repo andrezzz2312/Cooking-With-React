@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import RecipeIngredientEdit from './RecipeIngredientEdit';
 import {RecipeContext} from './App';
 import {v4 as uuidv4} from 'uuid';
+import {FiArrowUp, FiArrowDown} from 'react-icons/fi';
 
 export default function RecipeEdit({recipe}) {
   const {handleRecipeChange, handleRecipeSelect, language} =
@@ -111,17 +112,35 @@ export default function RecipeEdit({recipe}) {
           <div className='asd'>{language.name}</div>
           <div className='asd'>{language.amount}</div>
         </div>
-
-        <div id='ingredientz' className='recipe-edit__ingredient-grid'>
-          {recipe.ingredients.map((ingredient) => (
-            <RecipeIngredientEdit
-              key={ingredient.id}
-              handleIngredientChange={handleIngredientChange}
-              handleIngredientDelete={handleIngredientDelete}
-              ingredient={ingredient}
+        <div className='recipe-edit__ingredient-wrapper'>
+          <div className='recipe-edit__ingredient-scroll'>
+            <FiArrowUp
+              onClick={() => {
+                setTimeout(() => {
+                  ingredientDiv.scrollTop -= 43.33;
+                }, 50);
+              }}
             />
-          ))}
+            <FiArrowDown
+              onClick={() => {
+                setTimeout(() => {
+                  ingredientDiv.scrollTop += 43.33;
+                }, 50);
+              }}
+            />
+          </div>
+          <div id='ingredientz' className='recipe-edit__ingredient-grid'>
+            {recipe.ingredients.map((ingredient) => (
+              <RecipeIngredientEdit
+                key={ingredient.id}
+                handleIngredientChange={handleIngredientChange}
+                handleIngredientDelete={handleIngredientDelete}
+                ingredient={ingredient}
+              />
+            ))}
+          </div>
         </div>
+
         <div className='recipe-edit__add-ingredient-btn-container'>
           <button
             onClick={() => {
